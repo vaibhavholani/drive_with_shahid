@@ -2,26 +2,87 @@ import React from "react";
 
 export default function Hero() {
   return (
-    <div className="w-[1440px] h-[782px] bg-[#1a3c1e] overflow-hidden">
-      <div className="relative w-[2161px] h-[1608px] left-[-721px]">
-        <div className="absolute w-[1440px] h-[43px] top-0 left-[721px] bg-[#1a3c1e]" />
-        <img className="absolute w-[1223px] h-[754px] top-[28px] left-[938px]" alt="Images" src="sample.png" />
-        <div className="absolute w-[1578px] h-[1511px] top-[97px] left-0">
-          <div className="relative w-[1576px] h-[1511px]">
-            <div className="absolute w-[1555px] h-[1511px] top-0 left-0 bg-white rounded-[777.5px/755.5px]" />
-            <div className="absolute w-[755px] top-[97px] left-[821px] [font-family:'Inter-Bold',Helvetica] font-bold text-[#2e6434] text-[80px] tracking-[0] leading-[normal]">
-              Start.
-              <br />
-              your.
-              <br />
-              Driving <br />
-              Journey
-              <br />
-              with Shahid
-            </div>
-          </div>
-        </div>
-        <div className="absolute w-[176px] h-[64px] top-[11px] left-[721px]">
+  <div className="bg-[#1a3d1e] relative flex flex-col w-[100vw] h-[600px]">
+  <div className="relative min-w-[1000px] h-[100%] float-right">
+  <img
+    src="https://file.rendit.io/n/xFXUqFTAhXBq6NeCTlTH.png"
+    alt="PHOTO"
+    id="PHOTO"
+    className="w-[13vw] absolute top-[4%] left-[50vw]"
+  />
+
+  <img
+    src="https://file.rendit.io/n/EpbWW8qlYfMsuFqmbwbJ.png"
+    alt="PHOTO1"
+    id="PHOTO1"
+    className="w-[10vw] absolute top-[7%] left-[15vw]"
+  />
+  <img
+    src="https://file.rendit.io/n/rqVEZaqKaavSZcB7kmjt.png"
+    alt="PHOTO4"
+    id="PHOTO4"
+    className="w-[13vw] absolute top-[85%] right-[5vw]"
+  />
+  <img
+    src="https://file.rendit.io/n/lAlxYdB69Mxf4E70tunU.png"
+    alt="PHOTO5"
+    id="PHOTO5"
+    className="w-[12vw] absolute top-[3%] left-[30vw]"
+  />
+  
+  <img
+    src="https://file.rendit.io/n/27vHuDNrHLNJ7j9SRblB.png"
+    alt="PHOTO8"
+    id="PHOTO8"
+    className="w-[13vw]  absolute top-[23%] left-[35vw]"
+  /> 
+
+<img
+      src="https://file.rendit.io/n/VqmKajcPgWrnMkoQJC00.png"
+      alt="PHOTO3"
+      id="PHOTO3"
+      className="left-[80vw]  w-[27vw] relative mt-10"
+    />
+    
+<img
+      src="https://file.rendit.io/n/xFXUqFTAhXBq6NeCTlTH.png"
+      alt="PHOTO3"
+      id="PHOTO3"
+      className=" w-[24vw] absolute top-[40%] left-[45vw]"
+    />
+<img
+      src="https://file.rendit.io/n/xFXUqFTAhXBq6NeCTlTH.png"
+      alt="PHOTO3"
+      id="PHOTO3"
+      className=" w-[10vw] absolute top-[70%] left-[70vw]"
+    />
+<img
+      src="https://file.rendit.io/n/xFXUqFTAhXBq6NeCTlTH.png"
+      alt="PHOTO3"
+      id="PHOTO3"
+      className=" w-[12vw] absolute top-[85%] left-[48vw]"
+    />
+  </div>
+
+
+  <div
+    id="circle"
+    className="bg-white h-[100vw] w-[100vw] absolute top-[10%] -left-[50vw] rounded-[100%] z-0"
+  >
+  </div>
+  <div className="text-[10vh] absolute top-[25%] left-[7vw] font-family-['Inter-Regular'] leading-tight font-bold text-[#2e6434] z-10">
+      Start.
+      <br />
+      your.
+      <br />
+      Driving <br />
+      Journey
+      <br />
+      with Shahid
+      <br />
+    </div>
+
+    <div className="absolute w-[176px] h-[64px]  left-[10px]">
           <div className="relative w-[180px] h-[64px]">
             <img
               className="absolute w-[119px] h-[64px] top-0 left-0"
@@ -37,9 +98,8 @@ export default function Hero() {
               </div>
             </div>
           </div>
-        </div>
-      </div>
     </div>
-
+    
+  </div>
   );
 };
