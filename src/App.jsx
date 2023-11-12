@@ -7,10 +7,10 @@ import GoogleReviews from './components/GoogleReviews';
 export default function App() {
   return (
     <>
-    {/* <Hero /> */}
-    {/* <GoogleReviews /> */}
+    <Hero />
+    <GoogleReviews />
     <CourseCard />
-    {/* <Book /> */}
+    <Book />
     </>
   )
 }
