@@ -1,7 +1,49 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Hero.css";
 
 export default function Hero() {
+  const images = [
+    "https://file.rendit.io/n/xFXUqFTAhXBq6NeCTlTH.png",
+    "https://file.rendit.io/n/EpbWW8qlYfMsuFqmbwbJ.png",
+    "https://file.rendit.io/n/rqVEZaqKaavSZcB7kmjt.png",
+    "https://file.rendit.io/n/lAlxYdB69Mxf4E70tunU.png",
+    "https://file.rendit.io/n/27vHuDNrHLNJ7j9SRblB.png",
+    "https://file.rendit.io/n/EpbWW8qlYfMsuFqmbwbJ.png"
+  ];
+
+  // could be made dynamic
+  const curImages = [0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1];
+
+  useEffect(() => {
+    const flipElements = document.querySelectorAll('.flip');
+
+    flipElements.forEach((element, index) => {
+      let interval;
+      element.style.animationDelay = `${index * 5}s`;
+
+      element.addEventListener("animationstart", () => {
+        interval = setInterval(() => {
+          curImages[index] = Math.floor(Math.random() * images.length);
+          element.src = images[curImages[index]];
+        }, 1000);
+      });
+
+      // this is triggered four times for some reason, hence it really adds a 60s delay every iteration
+      element.addEventListener("animationend", (e) => {
+        clearInterval(interval);
+        element.style.animationDelay = `${parseInt(element.style.animationDelay)+15}s`;
+      })
+    });
+
+    // Clear event listener on component unmount
+    return () => {
+      flipElements.forEach((element) => {
+        element.removeEventListener("animationstart", () => {});
+        element.removeEventListener("animationend", () => {});
+      });
+    };
+  }, []);
+  
   return (
     <div className="bg-[#1a3d1e] relative flex flex-col w-[100vw] h-[600px] overflow-hidden">
       <div
@@ -9,81 +51,81 @@ export default function Hero() {
         className="relative w-[1000px] h-[100%] "
       >
         <img
-          src="https://file.rendit.io/n/xFXUqFTAhXBq6NeCTlTH.png"
+          src={images[curImages[0]]}
           alt="PHOTO"
           id="PHOTO"
-          className="w-[13%] absolute top-[4%] left-[40%]"
+          className="w-[13%] absolute top-[4%] left-[40%] flip"
         />
 
         <img
-          src="https://file.rendit.io/n/EpbWW8qlYfMsuFqmbwbJ.png"
+          src={images[curImages[1]]}
           alt="PHOTO1"
           id="PHOTO1"
-          className="w-[10%] absolute top-[7%] left-[5%]"
+          className="w-[10%] absolute top-[7%] left-[5%] flip"
         />
         <img
-          src="https://file.rendit.io/n/rqVEZaqKaavSZcB7kmjt.png"
+          src={images[curImages[2]]}
           alt="PHOTO4"
           id="PHOTO4"
-          className="w-[13%] absolute top-[85%] right-[5%]"
+          className="w-[13%] absolute top-[85%] right-[5%] flip"
         />
         <img
-          src="https://file.rendit.io/n/lAlxYdB69Mxf4E70tunU.png"
+          src={images[curImages[3]]}
           alt="PHOTO5"
           id="PHOTO5"
-          className="w-[12%] absolute top-[3%] left-[20%]"
+          className="w-[12%] absolute top-[3%] left-[20%] flip"
         />
 
         <img
-          src="https://file.rendit.io/n/27vHuDNrHLNJ7j9SRblB.png"
+          src={images[curImages[4]]}
           alt="PHOTO8"
           id="PHOTO8"
-          className="w-[13%]  absolute top-[23%] left-[25%]"
+          className="w-[13%]  absolute top-[23%] left-[25%] flip"
         />
         <img
-          src="https://file.rendit.io/n/27vHuDNrHLNJ7j9SRblB.png"
+          src={images[curImages[5]]}
           alt="PHOTO8"
           id="PHOTO8"
-          className="w-[13%]  absolute top-[36%] left-[55%]"
+          className="w-[13%]  absolute top-[36%] left-[55%] flip"
         />
 
         <img
-          src="https://file.rendit.io/n/VqmKajcPgWrnMkoQJC00.png"
+          src={images[curImages[6]]}
           alt="PHOTO3"
           id="PHOTO3"
-          className=" w-[27%] relative top-[7%] left-[75%]"
+          className=" w-[27%] relative top-[7%] left-[75%] flip"
         />
 
         <img
-          src="https://file.rendit.io/n/xFXUqFTAhXBq6NeCTlTH.png"
+          src={images[curImages[7]]}
           alt="PHOTO3"
           id="PHOTO3"
-          className=" w-[24%] absolute top-[40%] left-[32%]"
+          className=" w-[24%] absolute top-[40%] left-[32%] flip"
         />
         <img
-          src="https://file.rendit.io/n/xFXUqFTAhXBq6NeCTlTH.png"
+          src={images[curImages[8]]}
           alt="PHOTO3"
           id="PHOTO3"
-          className=" w-[25%] absolute top-[57%] left-[57%]"
+          className=" w-[25%] absolute top-[57%] left-[57%] flip"
         />
         <img
-          src="https://file.rendit.io/n/xFXUqFTAhXBq6NeCTlTH.png"
+          src={images[curImages[9]]}
           alt="PHOTO3"
           id="PHOTO3"
-          className=" w-[12%] absolute top-[85%] left-[38%]"
+          className=" w-[12%] absolute top-[85%] left-[38%] flip"
         />
 
         <img
-          src="https://file.rendit.io/n/xFXUqFTAhXBq6NeCTlTH.png"
+          src={images[curImages[10]]}
           alt="PHOTO3"
           id="PHOTO3"
-          className=" w-[10%] absolute top-[65%] left-[87%]"
+          className=" w-[10%] absolute top-[65%] left-[87%] flip"
         />
         <img
-          src="https://file.rendit.io/n/EpbWW8qlYfMsuFqmbwbJ.png"
+          src={images[curImages[11]]}
           alt="PHOTO1"
           id="PHOTO1"
-          className="w-[18%] absolute top-[4%] left-[57%]"
+          className="w-[18%] absolute top-[4%] left-[57%] flip"
         />
       </div>
 
