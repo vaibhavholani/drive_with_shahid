@@ -1,0 +1,30 @@
+/* When the viewport width is 1000px or more */
+@media (min-width: 1000px) {
+    #circle {
+      left: -50vw;
+    }
+  }
+  
+  /* When the viewport width is less than 1000px */
+  @media (max-width: 999px) {
+    #circle {
+      left: -500px;
+      height: 1000px;
+        width: 1000px;
+    }
+  }
+  
+/* Keyframes animation for flipping */
+@keyframes flipY {
+  0% {
+    transform: perspective(400px) rotateY(0);
+  }
+
+  100% {
+    transform: perspective(400px) rotateY(360deg);
+  }
+}
+
+.flip {
+  animation: flipY 2s ease-in-out;
+}
