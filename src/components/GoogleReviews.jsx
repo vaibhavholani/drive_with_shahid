@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-
+import './GoogleReviews.css';
 
 export default function GoogleReviews() {
 
@@ -26,7 +26,9 @@ export default function GoogleReviews() {
   }, []);
 
   return (
+    <div className={"bg-primary google-reviews"}>
     <div className="elfsight-app-95598708-c707-43a1-ad67-0e64c5dcb3d4 remove-a px-[2vw] py-[2vh]" data-elfsight-app-lazy></div>
+    </div>
     
   )
 }

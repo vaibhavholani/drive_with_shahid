@@ -3,137 +3,183 @@ import "./Hero.css";
 
 export default function Hero() {
   const images = [
-    "https://file.rendit.io/n/xFXUqFTAhXBq6NeCTlTH.png",
-    "https://file.rendit.io/n/EpbWW8qlYfMsuFqmbwbJ.png",
-    "https://file.rendit.io/n/rqVEZaqKaavSZcB7kmjt.png",
-    "https://file.rendit.io/n/lAlxYdB69Mxf4E70tunU.png",
-    "https://file.rendit.io/n/27vHuDNrHLNJ7j9SRblB.png",
-    "https://file.rendit.io/n/EpbWW8qlYfMsuFqmbwbJ.png"
+    "heroImages/good2.png",
+    "heroImages/cc.png",
+    "heroImages/good3.png",
+    "heroImages/good3.png",
+    "heroImages/good5.png",
+    "heroImages/good3.png",
+    "heroImages/good3.png",
+    "heroImages/good2.png",
+    "heroImages/good3.png",
+    "heroImages/good1.png",
   ];
 
-  // could be made dynamic
-  const curImages = [0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1];
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
   useEffect(() => {
-    const flipElements = document.querySelectorAll('.flip');
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
 
-    flipElements.forEach((element, index) => {
-      let interval;
-      element.style.animationDelay = `${index * 5}s`;
+    window.addEventListener('resize', handleResize);
 
-      element.addEventListener("animationstart", () => {
-        interval = setInterval(() => {
-          curImages[index] = Math.floor(Math.random() * images.length);
-          element.src = images[curImages[index]];
-        }, 1000);
-      });
-
-      // this is triggered four times for some reason, hence it really adds a 60s delay every iteration
-      element.addEventListener("animationend", (e) => {
-        clearInterval(interval);
-        element.style.animationDelay = `${parseInt(element.style.animationDelay)+15}s`;
-      })
-    });
-
-    // Clear event listener on component unmount
     return () => {
-      flipElements.forEach((element) => {
-        element.removeEventListener("animationstart", () => {});
-        element.removeEventListener("animationend", () => {});
-      });
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
+
+
+  // useEffect(() => {
+  //   const flipElements = document.querySelectorAll('.flip');
+
+  //   flipElements.forEach((element, index) => {
+  //     let interval;
+  //     element.style.animationDelay = `${index * 5}s`;
+
+  //     element.addEventListener("animationstart", () => {
+  //       interval = setInterval(() => {
+  //         curImages[index] = Math.floor(Math.random() * images.length);
+  //         element.src = images[curImages[index]];
+  //       }, 1000);
+  //     });
+
+  //     // this is triggered four times for some reason, hence it really adds a 60s delay every iteration
+  //     element.addEventListener("animationend", (e) => {
+  //       clearInterval(interval);
+  //       element.style.animationDelay = `${parseInt(element.style.animationDelay)+15}s`;
+  //     })
+  //   });
+
+  //   // Clear event listener on component unmount
+  //   return () => {
+  //     flipElements.forEach((element) => {
+  //       element.removeEventListener("animationstart", () => {});
+  //       element.removeEventListener("animationend", () => {});
+  //     });
+  //   };
+  // }, []);
   
   return (
     <div className="bg-[#1a3d1e] relative flex flex-col w-[100vw] h-[600px] overflow-hidden">
       <div
-        style={{ "margin-left": `calc(100vw - 1000px)` }}
-        className="relative w-[1000px] h-[100%] "
-      >
+
+        style={{ "margin-left": `calc(100vw - 1000px)`, width: screenWidth > 1000 ? '1000px' : '100vw' }}
+        className="relative  h-[100%] overflow-hidden"
+      > 
+          {/* TOP LEFT - SMALL */}   
+          {/* <img
+          src={images[4]}
+          alt="TOP LEFT"
+          id="top-left"
+          className="w-[12%] rounded-full absolute top-[9%] left-[0%] flip"
+        /> */}
+
+        {/* TOP MIDDLE LEFT - SMALL (BESIDES TOP LEFT^^) */}
         <img
-          src={images[curImages[0]]}
-          alt="PHOTO"
-          id="PHOTO"
-          className="w-[13%] absolute top-[4%] left-[40%] flip"
+          src={"heroImages/good4.png"}
+          alt="TOP MIDDLE LEFT"
+          id="PHOTO8"
+          className="w-[14%]  rounded-full absolute top-[4%] left-[14%]"
         />
 
-        <img
-          src={images[curImages[1]]}
-          alt="PHOTO1"
-          id="PHOTO1"
-          className="w-[10%] absolute top-[7%] left-[5%] flip"
+        {/* MIDDLE RIGHT (BESIDE CIRCLE) - MEDIUM */}
+      <img
+          src={images[1]}
+          alt="MIDDLE RIGHT BESIDE CIRCLE - MEDIUM"
+          id="PHOTO3"
+          className=" w-[17%] rounded-full absolute top-[27%] left-[26%] flip"
         />
+
+        {/* TOP MIDDLE RIGHT - MEDIUM */}
         <img
-          src={images[curImages[2]]}
-          alt="PHOTO4"
+          src={images[0]}
+          alt="TOP MIDDLE RIGHT - MEDIUM"
+          id="PHOTO1"
+          className="w-[17%] rounded-full absolute top-[8%] left-[42%] flip"
+        />
+
+        {/*MIDDLE MIDDLE BIG */}
+        <img
+          src={images[4]}
+          alt="LOWER MIDDLE MIDLEE BIG"
+          id="PHOTO3"
+          className="w-[21%] rounded-full absolute top-[45%] left-[44%] flip"
+          />
+
+        {/* BOTTOM LEFT - SMALL */}
+        <img
+          src={images[9]}
+          alt="BOTTOM MIDDLE"
+          id="PHOTO3"
+          className=" w-[16%] rounded-full absolute top-[78%] left-[35%] flip"
+        />
+
+
+        {/* TOP LESS LEFT - SMALL*/}
+        {/* <img
+        src={images[3]}
+        alt="TOP LESS LEFT"
+        id="PHOTO5"
+        className="w-[12%] rounded-full absolute top-[3%] left-[20%] flip"
+        /> */}
+
+        {/* TOP MIDDLE - SMALL */}
+        {/* <img
+            src={images[0]}
+            alt="TOP MIDDLE"
+            id="PHOTO"
+            className="w-[13%] rounded-full absolute top-[4%] left-[40%] flip rounded-full "
+          /> */}
+
+        {/* LOW MIDDLE RIGHT - SMALL */}
+        <img
+          src={"heroImages/low4.png"}
+          alt="MIDDLE RIGHT"
+          id="PHOTO3"
+          className="w-[10%] rounded-full absolute top-[65%] left-[87%] flip"
+        />
+
+        
+        {/* BOTTOM RIGHT - SMALL */}
+        <img
+          src={"heroImages/med1.png"}
+          alt="BOTTOM RIGHT"
           id="PHOTO4"
-          className="w-[13%] absolute top-[85%] right-[5%] flip"
-        />
-        <img
-          src={images[curImages[3]]}
-          alt="PHOTO5"
-          id="PHOTO5"
-          className="w-[12%] absolute top-[3%] left-[20%] flip"
+          className="w-[30%] rounded-full absolute top-[80%] right-[10%] flip"
         />
 
-        <img
-          src={images[curImages[4]]}
-          alt="PHOTO8"
+        
+
+        {/* MIDDLE MIDDLE - SMALL */}
+        {/* <img
+          src={images[5]}
+          alt="MIDDLE MIDDLE - SMALL"
           id="PHOTO8"
-          className="w-[13%]  absolute top-[23%] left-[25%] flip"
-        />
+          className="w-[13%]  rounded-full absolute top-[36%] left-[55%] flip"
+        /> */}
+
+        
+
+
+        {/*TOP RIGHT BIG */}
         <img
-          src={images[curImages[5]]}
-          alt="PHOTO8"
-          id="PHOTO8"
-          className="w-[13%]  absolute top-[36%] left-[55%] flip"
+          src={images[6]}
+          alt="TOP RIGHT "
+          id="PHOTO3"
+          className=" w-[35%] rounded-full relative top-[3%] left-[65%] flip"
         />
 
-        <img
-          src={images[curImages[6]]}
-          alt="PHOTO3"
-          id="PHOTO3"
-          className=" w-[27%] relative top-[7%] left-[75%] flip"
-        />
-
-        <img
-          src={images[curImages[7]]}
-          alt="PHOTO3"
-          id="PHOTO3"
-          className=" w-[24%] absolute top-[40%] left-[32%] flip"
-        />
-        <img
-          src={images[curImages[8]]}
-          alt="PHOTO3"
-          id="PHOTO3"
-          className=" w-[25%] absolute top-[57%] left-[57%] flip"
-        />
-        <img
-          src={images[curImages[9]]}
-          alt="PHOTO3"
-          id="PHOTO3"
-          className=" w-[12%] absolute top-[85%] left-[38%] flip"
-        />
-
-        <img
-          src={images[curImages[10]]}
-          alt="PHOTO3"
-          id="PHOTO3"
-          className=" w-[10%] absolute top-[65%] left-[87%] flip"
-        />
-        <img
-          src={images[curImages[11]]}
-          alt="PHOTO1"
-          id="PHOTO1"
-          className="w-[18%] absolute top-[4%] left-[57%] flip"
-        />
       </div>
 
       <div
         id="circle"
-        className="bg-white h-[100vw] w-[100vw] min-w-[1000px] absolute top-[10%] rounded-[100%] z-10"
-      ></div>
-      <div className="text-[60px] absolute top-[25%] left-[7vw] font-family-['Inter-Regular'] leading-tight font-bold text-[#2e6434] z-20">
+        style={{ minWidth: screenWidth > 1000 ? '1000px' : 'auto' }}
+        className="bg-white h-[100vw] w-[100vw] rounded-full absolute top-[10%] rounded-[100%] z-20 overflow-hidden"
+      />
+
+
+      <div className="text-[60px] rounded-full absolute top-[25%] left-[7vw] font-family-['Inter-Regular'] leading-tight font-bold text-[#2e6434] z-30">
         Start.
         <br />
         your.
@@ -156,7 +202,7 @@ export default function Hero() {
             <div className="absolute w-[113px] top-[24px] left-0 [font-family:'Inter-Regular',Helvetica] font-normal text-white text-[12px] tracking-[0] leading-[normal]">
               DRIVING SCHOOL
             </div>
-            <div className="absolute top-0 left-0 [font-family:'Inter-Black',Helvetica] font-black text-white text-[20px] tracking-[0] leading-[normal] whitespace-nowrap">
+            <div className="rounded-full absolute top-0 left-0 [font-family:'Inter-Black',Helvetica] font-black text-white text-[20px] tracking-[0] leading-[normal] whitespace-nowrap">
               SHAHID’S
             </div>
           </div>
