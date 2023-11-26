@@ -5,6 +5,8 @@ import "./FloatingCallButton.css";
 
 export default function FloatingCallButton() {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isTextVisible, setIsTextVisible] = useState(true);
+  const [displayText, setDisplayText] = useState('block');
 
   const handleCallClick = () => {
     window.location.href = 'tel:+16474009353'; // Use the phone number in the format 'tel:+[country code][number]'
@@ -19,29 +21,27 @@ export default function FloatingCallButton() {
   }, []);
 
   const variants = {
-    expanded: { width: '200px', transition: { duration: 0.5 } },
+    expanded: { width: '200px', height: '50px', transition: { duration: 0.5 } },
     collapsed: { width: '50px', height: '50px', transition: { duration: 0.5 } }
   };
 
-  // const textVariants = {
-  //   show: {
-  //     opacity: 1,
-  //     display: 'block', // Show text as block
-  //     transition: { duration: 0.5, when: "beforeChildren" }
-  //   },
-  //   hide: {
-  //     opacity: 0,
-  //     transition: { duration: 0.5 },
-  //     transitionEnd: {
-  //       display: 'none' // Hide text completely after transition
-  //     }
-  //   }
-  // };
+  useEffect(() => {
+    if (!isExpanded) {
+      const timer = setTimeout(() => {
+        setDisplayText('none');
+      }, 450); // Set this to half the duration of your animation
+
+      // return () => clearTimeout(timer);
+    } else {
+      setDisplayText('block');
+    }
+  }, [isExpanded]);
+  
   const textVariants = {
     show: {
       opacity: 1,
       x: 0, // Text slides in from left to its original position
-      display: 'block', 
+      // display: 'block', 
       transition: { 
         x: { type: "spring", stiffness: 100 },
         duration: 0.5,
@@ -55,16 +55,16 @@ export default function FloatingCallButton() {
         x: { type: "spring", stiffness: 100 },
         duration: 0.5
       },
-      transitionEnd: {
-        display: 'none'
-      }
+      // transitionEnd: {
+      //   display: 'none'
+      // }
     }
   };
   
   
 
   return (
-    <div className="fixed bottom-[30px] right-[30px] z-50">
+    <div className="fixed bottom-[5px] right-[5px] z-50">
     <motion.button 
       className="flex justify-center items-center space-x-4 call-shahid-button bg-primary overflow-visible rounded-full p-[1vw]"
       animate={isExpanded ? 'expanded' : 'collapsed'}
@@ -79,6 +79,7 @@ export default function FloatingCallButton() {
         className="call-text [font-family:'Inter-SemiBold',Helvetica] font-bold text-white whitespace-nowrap overflow-hidden"
         animate={isExpanded ? 'show' : 'hide'}
         variants={textVariants}
+        style={{ display: displayText }}
       >
         Call Shahid!
       </motion.span>
