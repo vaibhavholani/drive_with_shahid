@@ -10,6 +10,17 @@
     /* other styles */
   }
 
+  .sliderContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .sliderContainer > .slick-slider {
+    flex: 1; /* Adjust this as needed */
+    width: 100%; /* Or a specific width */
+  }
+
   
   .package-card:hover {
     /* transform: scale(1.05);
@@ -19,4 +30,19 @@
      z-index: 120;
   }
   
-  
+  @media screen and (max-width: 750) {
+    #saveMoreArrow {
+      transform: rotate(90deg);
+      margin-left:35%;
+    }
+
+    #cardTemplateHolder {
+      margin-left: calc((100vw - 740px) / 2);
+    }
+  }
+
+  @media screen and (max-width: 750px) {
+    #cardTemplateHolder {
+      margin-left: calc((100vw - 350px) / 2);
+    }
+  }

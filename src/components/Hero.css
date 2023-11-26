@@ -1,16 +1,51 @@
+
+
 /* When the viewport width is 1000px or more */
 @media (min-width: 1000px) {
     #circle {
       left: -50vw;
     }
+
+    #heroImages {
+      margin-left: calc(100vw - 1000px);
+      width: 1000px;
+    }
+
   }
   
   /* When the viewport width is less than 1000px */
   @media (max-width: 999px) {
     #circle {
-      left: -500px;
-      height: 1000px;
-        width: 1000px;
+      left: -550px;
+      height: 920px;
+      width: 920px;
+      top:10%;
+    }
+
+    #heroContainer {
+      height: 550px;
+    }
+
+    #heroText {
+      font-size: 3.25rem;
+      top:30%;
+    }
+
+    #heroImages {
+      margin: 0;
+      width: 100vw;
+      margin-top: 50px;
+    }
+
+    #LowerMiddleMiddle { 
+      top:37%;
+      left: 74%;
+    }
+
+    #BottomRight {
+      width: 20%;
+      left: 80%;
+      top: 65%;
     }
   }
   
@@ -25,6 +60,6 @@
   }
 }
 
-.flip {
+/* .flip {
   animation: flipY 2s ease-in-out;
-}
+} */

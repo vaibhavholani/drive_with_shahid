@@ -61,11 +61,10 @@ export default function Hero() {
   // }, []);
   
   return (
-    <div className="bg-[#1a3d1e] relative flex flex-col w-[100vw] h-[600px] overflow-hidden">
+    <div id="heroContainer" className="bg-[#1a3d1e] relative flex flex-col w-[100vw] h-[600px] overflow-hidden">
       <div
-
-        style={{ "margin-left": `calc(100vw - 1000px)`, width: screenWidth > 1000 ? '1000px' : '100vw' }}
-        className="relative  h-[100%] overflow-hidden"
+        id="heroImages"
+        className="relative h-[100%] overflow-hidden"
       > 
           {/* TOP LEFT - SMALL */}   
           {/* <img
@@ -103,7 +102,7 @@ export default function Hero() {
         <img
           src={images[4]}
           alt="LOWER MIDDLE MIDLEE BIG"
-          id="PHOTO3"
+          id="LowerMiddleMiddle"
           className="w-[21%] rounded-full absolute top-[45%] left-[44%] flip"
           />
 
@@ -136,16 +135,16 @@ export default function Hero() {
         <img
           src={"heroImages/low4.png"}
           alt="MIDDLE RIGHT"
-          id="PHOTO3"
+          id="LowMiddleRight"
           className="w-[10%] rounded-full absolute top-[65%] left-[87%] flip"
         />
 
         
-        {/* BOTTOM RIGHT - SMALL */}
+        {/* BOTTOM RIGHT - LARGE */}
         <img
           src={"heroImages/med1.png"}
           alt="BOTTOM RIGHT"
-          id="PHOTO4"
+          id="BottomRight"
           className="w-[30%] rounded-full absolute top-[80%] right-[10%] flip"
         />
 
@@ -160,8 +159,6 @@ export default function Hero() {
         /> */}
 
         
-
-
         {/*TOP RIGHT BIG */}
         <img
           src={images[6]}
@@ -179,7 +176,7 @@ export default function Hero() {
       />
 
 
-      <div className="text-[60px] rounded-full absolute top-[25%] left-[7vw] font-family-['Inter-Regular'] leading-tight font-bold text-[#2e6434] z-30">
+      <div id="heroText" className="text-[60px] rounded-full absolute top-[25%] left-[7vw] font-family-['Inter-Regular'] leading-tight font-bold text-[#2e6434] z-30">
         Start.
         <br />
         your.
