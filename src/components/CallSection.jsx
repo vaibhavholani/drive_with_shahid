@@ -14,7 +14,7 @@ const CallSection = () => {
 
   return (
     <motion.div
-      className="component-container mt-[20px]"
+      className="component-container mt-[20px] pb-[20px]"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
