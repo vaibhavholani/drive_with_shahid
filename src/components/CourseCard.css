@@ -30,7 +30,7 @@
      z-index: 120;
   }
   
-  @media screen and (max-width: 750) {
+  /* @media screen and (max-width: 100) {
     #saveMoreArrow {
       transform: rotate(90deg);
       margin-left:35%;
@@ -39,9 +39,15 @@
     #cardTemplateHolder {
       margin-left: calc((100vw - 740px) / 2);
     }
-  }
+  } */
 
   @media screen and (max-width: 750px) {
+
+    #saveMoreArrow {
+      transform: rotate(90deg);
+      margin-left:35%;
+    }
+
     #cardTemplateHolder {
       margin-left: calc((100vw - 350px) / 2);
     }
