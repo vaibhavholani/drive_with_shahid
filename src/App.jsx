@@ -6,10 +6,15 @@ import GoogleReviews from './components/GoogleReviews';
 import FloatingCallButton from './components/FloatingCallButton';
 import Dropdown from './components/LocationDropdown';
 import CallSection from './components/CallSection';
+import { decryptNumber } from './components/shahidSecret';
+import { eNum } from './const';
 
 export default function App() {
 
   const items = ["Item 1", "Item 2", "Item 3"];
+
+  // Example usage
+  const decryptedNumber = decryptNumber(eNum);
 
   return (
     <>
@@ -17,9 +22,9 @@ export default function App() {
     <GoogleReviews />
     <CourseCard />
     {/* <Book /> */}
-    <FloatingCallButton />
+    <FloatingCallButton number={decryptedNumber}/>
     {/* <Dropdown items={items} /> */}
-    <CallSection />
+    <CallSection number={decryptedNumber} />
     </>
   )
 }

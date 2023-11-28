@@ -3,13 +3,13 @@ import { motion } from 'framer-motion';
 import { PhoneIcon } from '@heroicons/react/24/solid'
 import "./FloatingCallButton.css";
 
-export default function FloatingCallButton() {
+export default function FloatingCallButton({number}) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isTextVisible, setIsTextVisible] = useState(true);
   const [displayText, setDisplayText] = useState('block');
 
   const handleCallClick = () => {
-    window.location.href = 'tel:+16474009353'; // Use the phone number in the format 'tel:+[country code][number]'
+    window.location.href = `tel:${number}`; // Use the phone number in the format 'tel:+[country code][number]'
   };
 
   useEffect(() => {

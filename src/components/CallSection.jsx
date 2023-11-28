@@ -2,14 +2,14 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import './CallSection.css'; // Make sure to create this CSS file
 
-const CallSection = () => {
+const CallSection = ({number}) => {
   const containerVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 }
   };
 
   const handleCallClick = () => {
-    window.location.href = 'tel:+16474009353'; // Use the phone number in the format 'tel:+[country code][number]'
+    window.location.href = `tel:${number}`; // Use the phone number in the format 'tel:+[country code][number]'
   };
 
   return (
