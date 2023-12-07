@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { motion } from "framer-motion";
 import { packageCards } from "./PackageCardData";
+import { getCalApi } from "@calcom/embed-react";
 import "./CourseCard.css";
 
 export default function CourseCard() {
@@ -48,14 +49,11 @@ export default function CourseCard() {
   };
 
   return (
-    // overflow-hidden p-[3vw] gap-[3vw]
     <div
       style={{ flexDirection: screenWidth > 750 ? "row" : "column" }}
       className="flex items-center justify-center overflow-visible p-[3vw] gap-[2vw]"
     >
-      {/* {screenWidth > 750 && FirstCard({screenWidth})} */}
-
-      {FirstCard({screenWidth})}
+      {FirstCard({ screenWidth })}
 
       <div>
         <div
@@ -63,7 +61,6 @@ export default function CourseCard() {
           style={{
             maxWidth: screenWidth > 750 ? "60vw" : "100vw",
             marginLeft: screenWidth > 750 ? "4vw" : "0px",
-           
           }}
         >
           <Slider {...settings}>
@@ -82,7 +79,7 @@ export default function CourseCard() {
 export const FirstCard = ({ screenWidth }) => {
   const cardVariants = {
     initial: {
-      boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
+      boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
       // other initial styles
     },
     // hover: {
@@ -101,9 +98,7 @@ export const FirstCard = ({ screenWidth }) => {
       initial="initial"
       whileHover="hover"
     >
-      <div
-        style={{ padding: "40px" }}
-      >
+      <div style={{ padding: "40px" }}>
         <p className="w-[296px] font-light text-white text-[24px] leading-normal mb-[1vw] [font-family:'Inter',Helvetica] tracking-[0]">
           <span className="[font-family:'Inter',Helvetica] font-light text-white">
             Save More
@@ -135,8 +130,20 @@ export const FirstCard = ({ screenWidth }) => {
 export function PackageCard({ info }) {
   const { icon, title, features, totalPrice, pricePerHour } = info;
 
+  useEffect(() => {
+    (async function () {
+      const cal = await getCalApi();
+      cal("ui", {
+        theme : "light",
+        styles: { branding: { brandColor: "#2e6434" } },
+        hideEventTypeDetails: false,
+        layout: "month_view",
+      });
+    })();
+  }, []);
+
   const handleCallClick = () => {
-    window.location.href = 'tel:+16474009353'; // Use the phone number in the format 'tel:+[country code][number]'
+    window.location.href = "tel:+16474009353"; // Use the phone number in the format 'tel:+[country code][number]'
   };
 
   const cardVariants = {
@@ -160,8 +167,6 @@ export function PackageCard({ info }) {
       initial="initial"
       whileHover="hover"
     >
-      {/* <div className="top-[64px] absolute w-[313px] h-[604px] left-[100px] bg-[#1b2547] blur-[200px] opacity-20" /> */}
-      {/* <div className=" absolute w-80 h-96 opacity-10 bg-indigo-950 blur-[200px] z-20" /> */}
       <div className="CardHeader items-center grid grid-cols-4 p-[20px] gap-2 leading-normal">
         <img
           className=" w-[57px] h-[56px] object-cover"
@@ -219,7 +224,12 @@ export function PackageCard({ info }) {
         </p>
       </div>
 
-      <button onClick={handleCallClick} className=" w-[90%] mx-[5%] h-[10%] text-center bg-[#2e6434] rounded-[12px] [font-family:'Inter-SemiBold',Helvetica] font-semibold text-white text-[20px] tracking-[0] leading-[40px] ">
+      <button
+        // onClick={handleCallClick}
+        data-cal-link="drivewithshahid/1-hour-in-person-driving-lesson"
+        data-cal-config='{"layout":"month_view"}'
+        className=" w-[90%] mx-[5%] h-[10%] text-center bg-[#2e6434] rounded-[12px] [font-family:'Inter-SemiBold',Helvetica] font-semibold text-white text-[20px] tracking-[0] leading-[40px] "
+      >
         Choose
       </button>
     </motion.div>

@@ -10,7 +10,11 @@ export default {
       'primary': '#1A3D1E',
       '2E6434': '#2E6434',
     }),
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'svg-pattern': "url('/city_car.svg')",
+      }
+    },
   },
   plugins: [],
 }

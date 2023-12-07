@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Navbar from './Navbar'; 
 import "./Hero.css";
 
 export default function Hero() {
@@ -188,23 +189,7 @@ export default function Hero() {
         <br />
       </div>
 
-      <div className=" bg-[#1a3d1e] absolute w-[176px] h-[64px] left-[10px]">
-        <div className="relative w-[180px] h-[64px]">
-          <img
-            className="absolute w-[119px] h-[64px] top-0 left-0"
-            alt="Undraw order ride re"
-            src="car.svg"
-          />
-          <div className="absolute w-[117px] h-[39px] top-[16px] left-[63px]">
-            <div className="absolute w-[113px] top-[24px] left-0 [font-family:'Inter-Regular',Helvetica] font-normal text-white text-[12px] tracking-[0] leading-[normal]">
-              DRIVING SCHOOL
-            </div>
-            <div className="rounded-full absolute top-0 left-0 [font-family:'Inter-Black',Helvetica] font-black text-white text-[20px] tracking-[0] leading-[normal] whitespace-nowrap">
-              SHAHID’S
-            </div>
-          </div>
-        </div>
-      </div>
+      <Navbar absolute={true}/>
     </div>
   );
 }
