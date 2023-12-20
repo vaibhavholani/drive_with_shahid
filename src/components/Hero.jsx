@@ -4,16 +4,16 @@ import "./Hero.css";
 
 export default function Hero() {
   const images = [
-    "heroImages/good2.png",
-    "heroImages/cc.png",
-    "heroImages/good3.png",
-    "heroImages/good3.png",
-    "heroImages/good5.png",
-    "heroImages/good3.png",
-    "heroImages/good3.png",
-    "heroImages/good2.png",
-    "heroImages/good3.png",
-    "heroImages/good1.png",
+    "heroImagesSmall/good2.png",
+    "heroImagesSmall/cc.png",
+    "heroImagesSmall/good3.png",
+    "heroImagesSmall/good3.png",
+    "heroImagesSmall/good5.png",
+    "heroImagesSmall/good3.png",
+    "heroImagesSmall/good3.png",
+    "heroImagesSmall/good2.png",
+    "heroImagesSmall/good3.png",
+    "heroImagesSmall/good1.png",
   ];
 
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
@@ -77,7 +77,7 @@ export default function Hero() {
 
         {/* TOP MIDDLE LEFT - SMALL (BESIDES TOP LEFT^^) */}
         <img
-          src={"heroImages/good4.png"}
+          src={"heroImagesSmall/good4.png"}
           alt="TOP MIDDLE LEFT"
           id="PHOTO8"
           className="w-[14%]  rounded-full absolute top-[4%] left-[14%]"
@@ -134,7 +134,7 @@ export default function Hero() {
 
         {/* LOW MIDDLE RIGHT - SMALL */}
         <img
-          src={"heroImages/low4.png"}
+          src={"heroImagesSmall/low4.png"}
           alt="MIDDLE RIGHT"
           id="LowMiddleRight"
           className="w-[10%] rounded-full absolute top-[65%] left-[87%] flip"
@@ -143,7 +143,7 @@ export default function Hero() {
         
         {/* BOTTOM RIGHT - LARGE */}
         <img
-          src={"heroImages/med1.png"}
+          src={"heroImagesSmall/med1.png"}
           alt="BOTTOM RIGHT"
           id="BottomRight"
           className="w-[30%] rounded-full absolute top-[80%] right-[10%] flip"
