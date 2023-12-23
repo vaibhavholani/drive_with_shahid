@@ -7,16 +7,17 @@ import GoogleReviews from "./components/GoogleReviews";
 import FloatingCallButton from "./components/FloatingCallButton";
 import Dropdown from "./components/LocationDropdown";
 import CallSection from "./components/CallSection";
-import { decryptNumber } from "./components/shahidSecret";
-import { eNum } from "./const";
+import { decryptNumber, encryptNumber } from "./components/shahidSecret";
+import { eNum, eNumVaibhav} from "./const";
 import Navbar from "./components/Navbar";
 
 export default function App() {
   const items = ["Item 1", "Item 2", "Item 3"];
 
-  // Example usage
-  const decryptedNumber = decryptNumber(eNum);
+  const decryptedNumber = decryptNumber(eNumVaibhav);
 
+  // const encryptedNumber = encryptNumber("1{number_here}}");
+  
   return (
     <Router>
       <Routes>
