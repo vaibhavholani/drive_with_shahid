@@ -1,6 +1,37 @@
 import pandas as pd
 import re
 
+########## Message Templates ##########
+message_template = """
+Hello!
+
+I am launching a new referral program to grow Drive with Shahid and you can earn *$50* for every new student you refer to us!
+
+Refer a friend to join our driving school, and *you'll receive $50* for each new student who takes at least one class. Just share your unique referral code: *<referral_code>* with them and ask them to mention it when they sign up.
+
+Help your friends and family become confident drivers, and earn rewards along the way!
+
+Referral code: *<referral_code>* (Give up to 3 referrals per month)
+
+Stay safe and keep driving,
+Shahid
+"""
+
+mt_follow_up = """
+
+Refer a friend and *get $50* for each new student who takes at least one class. 
+
+Just share your code: *<referral_code>* with them and ask them to mention it when they sign up.
+
+Referral code: *<referral_code>* (Give up to 3 referrals per month)
+
+This offer is valid till 28th Feb 2024.
+
+Google Profile: https://maps.app.goo.gl/9UqLcuxp8LRfLXR36
+Website: https://drivewithshahid.com/
+"""
+
+
 def create_referral_code(first_name, last_name, phone_number):
     """
     Create a simple and unique referral code based on the first name, last name, and phone number.
@@ -32,9 +63,10 @@ def save_to_csv(first_name, last_name, phone_number, referral_code, file_name='r
     # Save the updated data to CSV
     updated_data.to_csv(file_name, index=False)
 
-def format_message(first_name, last_name, file_name='referrals.csv'):
+def format_message(first_name, last_name, message_template, file_name='referrals.csv'):
     """
-    Generate a personalized referral program message including the user's unique referral code.
+    Generate a personalized referral program message based on a provided template,
+    including the user's unique referral code.
     """
     try:
         # Load the referral data
@@ -43,7 +75,6 @@ def format_message(first_name, last_name, file_name='referrals.csv'):
         # Find the referral code for the given first name and last name
         data['First Name'] = data['First Name'].fillna('')
         data['Last Name'] = data['Last Name'].fillna('')
-        data['Phone Number'] = data['Phone Number'].fillna('')
 
         matching_entries = data[(data['First Name'] == first_name) & (data['Last Name'] == last_name)]
 
@@ -55,15 +86,10 @@ def format_message(first_name, last_name, file_name='referrals.csv'):
 
         referral_code = matching_entries.iloc[0]['Referral Code']
 
-        # Create the personalized message
-        message = f"I am launching a new referral program to grow Drive with Shahid and you can earn *$50* for every new student you refer to us!\n\n" \
-                  f"Refer a friend to join our driving school, and *you'll receive $50* for each new student who takes at least one class. Just share your unique referral code: *{referral_code}* with them and ask them to mention it when they sign up.\n\n" \
-                  f"Help your friends and family become confident drivers, and earn rewards along the way!\n\n" \
-                  f"Referral code: *{referral_code}* (Give upto 3 referrals per month) \n\n"\
-                  f"Stay safe and keep driving,\n" \
-                  f"Shahid"
+        # Replace <referral_code> in the template with the actual referral code
+        message = message_template.replace("<referral_code>", referral_code)
         return message
-    
+
     except FileNotFoundError:
         return "Referral data file not found."
 
@@ -91,7 +117,7 @@ def process_and_save_data_from_file(file_path, csv_file_name='referrals.csv'):
 # process_and_save_data_from_file(text_file_path)
 
 # Example usage
-first_name = "CRISTELL"
+first_name = "Ali"
 last_name = ""
 phone_number = "4379882501"
 referral_code = create_referral_code(first_name, last_name, phone_number)
@@ -102,6 +128,6 @@ referral_code = create_referral_code(first_name, last_name, phone_number)
 # # Display the generated referral code for confirmation
 # referral_code
 
-# # Generate the message
-formatted_message = format_message(first_name, last_name)
+# Generate the message
+formatted_message = format_message(first_name, last_name, mt_follow_up)
 print(formatted_message)
