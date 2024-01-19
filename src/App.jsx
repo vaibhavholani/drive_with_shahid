@@ -26,7 +26,7 @@ export default function App() {
   
   // Setting Up Google Page Events
   useEffect(() => {
-    // ReactGA.pageview(window.location.pathname);
+    ReactGA.send({ hitType: "pageview", page: "/", title: "Visited Home" });
   }, []);
 
   return (
