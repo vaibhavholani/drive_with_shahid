@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import ReactGA from "react-ga";
+import ReactGA from "react-ga4";
 
 import Hero from "./components/Hero";
 import CourseCard from "./components/CourseCard";
@@ -13,8 +13,8 @@ import { decryptNumber, encryptNumber } from "./components/shahidSecret";
 import { eNum, eNumVaibhav} from "./const";
 import Navbar from "./components/Navbar";
 
-const tracking_id = "UA-299601793-1";
-ReactGA.initialize(tracking_id);
+const measurement_id = "G-NWZD4BW690";
+ReactGA.initialize(measurement_id);
 
 
 export default function App() {
@@ -26,7 +26,7 @@ export default function App() {
   
   // Setting Up Google Page Events
   useEffect(() => {
-    ReactGA.pageview(window.location.pathname);
+    // ReactGA.pageview(window.location.pathname);
   }, []);
 
   return (
