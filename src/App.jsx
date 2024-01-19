@@ -1,5 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ReactGA from "react-ga";
+
 import Hero from "./components/Hero";
 import CourseCard from "./components/CourseCard";
 import Book from "./components/Book";
@@ -11,6 +13,10 @@ import { decryptNumber, encryptNumber } from "./components/shahidSecret";
 import { eNum, eNumVaibhav} from "./const";
 import Navbar from "./components/Navbar";
 
+const tracking_id = "UA-299601793-1";
+ReactGA.initialize(tracking_id);
+
+
 export default function App() {
   const items = ["Item 1", "Item 2", "Item 3"];
 
@@ -18,6 +24,11 @@ export default function App() {
 
   // const encryptedNumber = encryptNumber("1{number_here}}");
   
+  // Setting Up Google Page Events
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname);
+  }, []);
+
   return (
     <Router>
       <Routes>
