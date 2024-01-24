@@ -1,0 +1,5 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://www.drivewithshahid.com/sitemap.xml
+
