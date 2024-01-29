@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
+import ReactGA from 'react-ga4';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { motion } from "framer-motion";
@@ -11,6 +12,7 @@ export default function CourseCard() {
   const [numSlides, setNumSlides] = useState(2);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
+  
   const updateSlidesToShow = () => {
     const vw = Math.max(
       document.documentElement.clientWidth || 0,
@@ -143,7 +145,12 @@ export function PackageCard({ info }) {
   }, []);
 
   const handleCallClick = () => {
-    window.location.href = "tel:+16474009353"; // Use the phone number in the format 'tel:+[country code][number]'
+      ReactGA.event({
+        category: 'Button Clicks',
+        action: 'Click',
+        label: 'CourseCard Choose Button'
+      });
+    // window.location.href = "tel:+16474009353"; // Use the phone number in the format 'tel:+[country code][number]'
   };
 
   const cardVariants = {
@@ -225,7 +232,7 @@ export function PackageCard({ info }) {
       </div>
 
       <button
-        // onClick={handleCallClick}
+        onClick={handleCallClick}
         data-cal-link="drivewithshahid/1-hour-in-person-driving-lesson"
         data-cal-config='{"layout":"month_view"}'
         className=" w-[90%] mx-[5%] h-[10%] text-center bg-[#2e6434] rounded-[12px] [font-family:'Inter-SemiBold',Helvetica] font-semibold text-white text-[20px] tracking-[0] leading-[40px] "
