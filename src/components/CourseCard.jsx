@@ -51,6 +51,7 @@ export default function CourseCard() {
   };
 
   return (
+    <div>
     <div
       style={{ flexDirection: screenWidth > 750 ? "row" : "column" }}
       className="flex items-center justify-center overflow-visible p-[3vw] gap-[2vw]"
@@ -74,6 +75,10 @@ export default function CourseCard() {
           </Slider>
         </div>
       </div>
+    </div>
+    <div className="flex items-center justify-center p-5">
+   <p>*package prices are given for <a href="https://maps.app.goo.gl/HTfFY8zBKdebAc5g6" target="_blank"> <b> Metro East Driving Test Center </b> </a></p> 
+    </div>
     </div>
   );
 }
