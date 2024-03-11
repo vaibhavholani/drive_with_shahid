@@ -12,6 +12,7 @@ import CallSection from "./components/CallSection";
 import { decryptNumber, encryptNumber } from "./components/shahidSecret";
 import { eNum, eNumVaibhav} from "./const";
 import Navbar from "./components/Navbar";
+import { Helmet } from 'react-helmet';
 
 const measurement_id = "G-NWZD4BW690";
 ReactGA.initialize(measurement_id);
@@ -46,6 +47,11 @@ export default function App() {
           path="/"
           element={
             <>
+              <Helmet>
+                <meta charSet="utf-8" />
+                <title>5-Star Toronto Driving Lessons | G & G2 Driver Classes | Drive with Shahid </title>
+                <meta name="description" content="Get the best Toronto driving classes with Shahid, more than 1000+ G and G2 tests passed. Discover flexible packages tailored to your needs. Drive first, Pay Later!" />
+              </Helmet>
               <Hero />
               <GoogleReviews />
               <CourseCard />
