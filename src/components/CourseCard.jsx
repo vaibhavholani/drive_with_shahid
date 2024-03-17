@@ -76,9 +76,9 @@ export default function CourseCard() {
         </div>
       </div>
     </div>
-    <div className="flex items-center justify-center p-5">
+    {/* <div className="flex items-center justify-center p-5">
    <p>*package prices are given for <a href="https://maps.app.goo.gl/HTfFY8zBKdebAc5g6" target="_blank"> <b> Metro East Driving Test Center </b> </a></p> 
-    </div>
+    </div> */}
     </div>
   );
 }
