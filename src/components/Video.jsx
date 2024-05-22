@@ -59,9 +59,7 @@ export default function Video() {
 
       <div className="absolute z-10" id="VideoClip">
         <video
-          autoPlay
-          loop
-          muted
+         autoplay loop muted playsinline
           className="w-full h-full object-cover"
         >
           <source src="sb_bp_vid.mp4" type="video/mp4" />
