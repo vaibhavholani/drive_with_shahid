@@ -7,8 +7,7 @@ import CourseCard from "./components/CourseCard";
 import Book from "./components/Book";
 import GoogleReviews from "./components/GoogleReviews";
 import FloatingCallButton from "./components/FloatingCallButton";
-import Dropdown from "./components/LocationDropdown";
-import CallSection from "./components/CallSection";
+import Video from "./components/Video"
 import { decryptNumber, encryptNumber } from "./components/shahidSecret";
 import { eNum, eNumVaibhav} from "./const";
 import Navbar from "./components/Navbar";
@@ -54,6 +53,7 @@ export default function App() {
               </Helmet>
               <Hero />
               <GoogleReviews />
+              <Video />
               <CourseCard />
               <Book />
               {/* <Dropdown items={items} /> */}
