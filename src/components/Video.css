@@ -1,0 +1,135 @@
+/* Keyframes animation for rotating */
+@keyframes rotate360 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#VideoButtonContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid white;
+  border-radius: 8px;
+  padding: 8px;
+  margin-top: 25px;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+#VideoButtonContainer:hover {
+  background-color: white;
+  color: #2E6434;
+}
+
+#VideoButtonContainer:hover #VideoArrow {
+  filter: invert(100%);
+}
+
+#VideoButtonContainer:hover #VideoSeriesButtonText {
+  color: #2E6434;
+}
+
+
+/* When the viewport width is 1000px or more */
+@media (min-width: 1000px) {
+    #VideoCircle {
+      right: -40vw;
+      top: -5vw;
+    }
+
+    #VideoContainer {
+      height: 600px;
+    }
+    
+    #heroImages {
+      margin-left: calc(100vw - 1000px);
+      width: 1000px;
+    }
+
+    #VideoClip {
+      right: 25vw;
+      left: 0;
+      bottom: 0;
+      top: -10vw;
+    }
+    
+    #VideoText {
+      right:15vw;
+      top: 125px;
+    }
+
+    #VideoSeriesButtonText {
+      font-size: 18px;
+    }
+
+    #VideoArrow {
+      width: 40px;
+      height: 40px;
+      transform: rotate(180deg);
+      display: inline-block;
+      margin-right: 3px;
+    }
+
+  }
+  
+  /* When the viewport width is less than 1000px */
+  @media (max-width: 999px) {
+    #VideoCircle {
+      left: -550px;
+      height: 920px;
+      width: 920px;
+    }
+
+    #VideoContainer {
+      height: 500px;
+    }
+
+    #VideoText {
+      font-size: 3rem;
+      top:20%;
+      left: 8vw;
+    }
+
+    #VideoSeriesButtonText {
+      font-size: 16px;
+    }
+
+
+    #VideoClip {
+      left:0px;
+      right: -250px;
+      bottom: 0;
+      top: -30vw;
+    }
+
+
+    #VideoArrow {
+      width: 30px;
+      height: 30px;
+      transform: rotate(0deg);
+    }
+
+    #heroImages {
+      margin: 0;
+      width: 100vw;
+      margin-top: 50px;
+    }
+  }
+  
+/* Keyframes animation for flipping */
+@keyframes flipY {
+  0% {
+    transform: perspective(400px) rotateY(0);
+  }
+
+  100% {
+    transform: perspective(400px) rotateY(180deg);
+  }
+}
+
+/* .flip {
+  animation: flipY 2s ease-in-out;
+} */
