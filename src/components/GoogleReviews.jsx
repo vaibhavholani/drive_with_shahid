@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import './GoogleReviews.css';
 
-export default function GoogleReviews() {
+export default function GoogleReviews({mode = 'dark'}) {
 
   useEffect(() => {
     // Function to remove <a> tags with a specific href
@@ -26,8 +26,8 @@ export default function GoogleReviews() {
   }, []);
 
   return (
-    <div className={"bg-primary google-reviews"}>
-    <div className="elfsight-app-95598708-c707-43a1-ad67-0e64c5dcb3d4 remove-a px-[2vw] py-[2vh]" data-elfsight-app-lazy></div>
+    <div className={`relative ${mode === 'dark' ? "bg-primary google-reviews" : "bg-white google-reviews"}`}>
+    <div className={`elfsight-app-95598708-c707-43a1-ad67-0e64c5dcb3d4 remove-a px-[2vw] py-[2vh] ${mode === 'dark' ? 'py-[2vh]' : 'py-0 absolute top-[-50px]' }`} data-elfsight-app-lazy></div>
     </div>
     
   )

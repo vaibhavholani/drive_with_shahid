@@ -203,7 +203,7 @@ export function PackageCard({ info }) {
                   alt="bx_check_circle"
                   src="check_circle.svg"
                 />
-                <p className="  flex items-start text-[#34343e] tracking-[0] leading-[normal]">
+                <p className="flex items-start text-[#34343e] tracking-[0] leading-[normal]">
                   {feature}
                 </p>
               </div>

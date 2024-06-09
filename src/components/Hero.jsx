@@ -189,7 +189,7 @@ export default function Hero() {
         <br />
       </div>
 
-      <Navbar absolute={true}/>
+      {/* <Navbar absolute={true}/> */}
     </div>
   );
 }

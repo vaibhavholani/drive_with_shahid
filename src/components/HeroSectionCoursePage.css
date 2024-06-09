@@ -1,0 +1,6 @@
+
+@media (min-width: 768px) {
+    .CourseHeroContainer {
+        height: calc(100vh - 56px);
+    }
+  }
