@@ -6,7 +6,7 @@ const HeroSectionCoursePage = () => {
   return (
     <section className="CourseHeroContainer">
       <div className="container mx-auto flex flex-col justify-center md:justify-between h-full max-w-full md:max-w-[492px] bg-[#c4ddc7] md:bg-[#2e6434]">
-        <div className="text-left text-[#2e6434] md:text-white p-10">
+        <div className="text-left text-[#2e6434] md:text-white p-5 md:p-10">
           <h1 className="text-xl md:text-2xl font-light">
             Drive Better <br />
             <span className="font-bold">With Shahid.</span>

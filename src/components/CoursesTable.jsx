@@ -16,7 +16,7 @@ export default function CoursesTable() {
   }, []);
 
   return (
-    <div className={`overflow-x-auto max-w-screen-lg mx-auto ${isPhoneView ? 'px-7' : 'px-0'}`}>
+    <div className={`overflow-x-auto max-w-screen-lg mx-auto ${isPhoneView ? 'px-5' : 'px-0'}`}>
       <div className="max-w-full mx-auto">
         <table className="min-w-full bg-[#c4ddc7] md:bg-white">
           <thead className="bg-[#2E6434] text-white">
