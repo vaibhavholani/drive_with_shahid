@@ -39,7 +39,7 @@ export default function FloatingCallButton({ number }) {
       });
 
     // Initiate the phone call
-    window.location.href = `tel:${number}`; // Use the phone number in the format 'tel:+[country code][number]'
+    window.location.href = `tel:${number}`;
   };
 
   useEffect(() => {
