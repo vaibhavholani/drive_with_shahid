@@ -1,13 +1,13 @@
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { PhoneIcon } from '@heroicons/react/24/solid';
-import axios from 'axios'; // Import axios for making HTTP requests
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { PhoneIcon } from "@heroicons/react/24/solid";
+import axios from "axios"; // Import axios for making HTTP requests
 import "./FloatingCallButton.css";
 
 export default function FloatingCallButton({ number }) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isTextVisible, setIsTextVisible] = useState(true);
-  const [displayText, setDisplayText] = useState('block');
+  const [displayText, setDisplayText] = useState("block");
 
   const handleCallClick = () => {
     // Collect current date and time
@@ -21,7 +21,7 @@ export default function FloatingCallButton({ number }) {
 
     // Prepare the data payload
     const data = {
-      message: 'Hey Vaibhav, a call has been initiated from the website!',
+      message: "Hey Vaibhav, a call has been initiated from the website!",
       dateTime: currentDateTime,
       userAgent: userAgent,
       platform: platform,
@@ -29,13 +29,20 @@ export default function FloatingCallButton({ number }) {
       browserVersion: browserVersion,
     };
 
-    // Make a POST request to the specified URL
-    axios.post('http://165.22.209.180:8080/notify-call', data)
-      .then(response => {
-        console.log('Notification sent:', response.data);
+    // Send the POST request with 'no-cors' mode
+    fetch("https://hooks.zapier.com/hooks/catch/20246608/2dp763j/", {
+      method: "POST",
+      mode: "no-cors", // Set the mode to 'no-cors'
+      headers: {
+        "Content-Type": "application/json", // Note: This header will be ignored in 'no-cors' mode
+      },
+      body: JSON.stringify(data),
+    })
+      .then(() => {
+        console.log("Notification sent (no-cors mode, no response available)");
       })
-      .catch(error => {
-        console.error('Error sending notification:', error);
+      .catch((error) => {
+        console.error("Error sending notification:", error);
       });
 
     // Initiate the phone call
@@ -44,26 +51,26 @@ export default function FloatingCallButton({ number }) {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIsExpanded(prev => !prev);
+      setIsExpanded((prev) => !prev);
     }, 3000);
 
     return () => clearInterval(interval);
   }, []);
 
   const variants = {
-    expanded: { width: '200px', height: '50px', transition: { duration: 0.5 } },
-    collapsed: { width: '50px', height: '50px', transition: { duration: 0.5 } },
+    expanded: { width: "200px", height: "50px", transition: { duration: 0.5 } },
+    collapsed: { width: "50px", height: "50px", transition: { duration: 0.5 } },
   };
 
   useEffect(() => {
     if (!isExpanded) {
       const timer = setTimeout(() => {
-        setDisplayText('none');
+        setDisplayText("none");
       }, 450); // Set this to half the duration of your animation
 
       // return () => clearTimeout(timer);
     } else {
-      setDisplayText('block');
+      setDisplayText("block");
     }
   }, [isExpanded]);
 
@@ -91,7 +98,7 @@ export default function FloatingCallButton({ number }) {
     <div className="fixed bottom-[5px] right-[5px] z-50">
       <motion.button
         className="flex justify-center items-center space-x-4 call-shahid-button bg-primary overflow-visible rounded-full p-[1vw]"
-        animate={isExpanded ? 'expanded' : 'collapsed'}
+        animate={isExpanded ? "expanded" : "collapsed"}
         onClick={handleCallClick}
         variants={variants}
       >
@@ -101,7 +108,7 @@ export default function FloatingCallButton({ number }) {
 
         <motion.span
           className="call-text [font-family:'Inter-SemiBold',Helvetica] font-bold text-white whitespace-nowrap overflow-hidden"
-          animate={isExpanded ? 'show' : 'hide'}
+          animate={isExpanded ? "show" : "hide"}
           variants={textVariants}
           style={{ display: displayText }}
         >
